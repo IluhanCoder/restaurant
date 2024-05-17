@@ -8,6 +8,7 @@ import { inputStyle } from "../styles/form-styles";
 import React, { useRef } from 'react';
 import html2PDF from "jspdf-html2canvas";
 import { ToastContainer, toast } from "react-toastify";
+import categoriesArray from "../misc/categories-array";
 
 const PairsPage = () => {
   const [minSupport, setMinSupport] = useState<number>(0.1);
@@ -108,12 +109,16 @@ const PairsPage = () => {
           </div>
           <div className="flex gap-2">
             <label>Категорія</label>
-            <input
-              className={inputStyle}
-              type="text"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            />
+            <select
+            className={inputStyle}
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="">всі</option>
+            {categoriesArray.map((cat: string) => <option value={cat}>
+              {cat}
+            </option>)}
+          </select>
           </div>
           <div className="flex justify-center">
             <button

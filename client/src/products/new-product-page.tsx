@@ -6,6 +6,7 @@ import { cardStyle } from "../styles/card-styles";
 import { buttonStyle, deleteButtonStyle } from "../styles/button-styles";
 import { inputStyle } from "../styles/form-styles";
 import { ToastContainer, toast } from "react-toastify";
+import categoriesArray from "../misc/categories-array";
 
 const NewProductPage = () => {
   const defaultImage = process.env.REACT_APP_IMAGE_PLACEHOLDER!;
@@ -159,12 +160,15 @@ const NewProductPage = () => {
                 </div>
                 <div className="flex gap-2 justify-center">
                   <label>Категорія:</label>
-                  <input
-                    className={inputStyle + " w-72"}
-                    type="text"
+                  <select
+                    className={inputStyle}
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                  ></input>
+                  >
+                    {categoriesArray.map((cat: string) => <option value={cat}>
+                      {cat}
+                    </option>)}
+          </select>
                 </div>
                 <div className="flex gap-2 justify-center">
                   <label>Опис:</label>
@@ -198,6 +202,7 @@ const NewProductPage = () => {
                         onChange={(e) =>
                           handleCharacteristicLabel(e.target.value)
                         }
+                        placeholder="вага"
                       />
                     </div>
                     <div className="flex gap-2">
@@ -209,6 +214,7 @@ const NewProductPage = () => {
                         onChange={(e) =>
                           handleCharacteristicValue(e.target.value)
                         }
+                        placeholder="200 г"
                       />
                     </div>
                     <button
