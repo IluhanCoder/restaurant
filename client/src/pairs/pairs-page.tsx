@@ -180,12 +180,12 @@ const PairsPage = () => {
                     </td>
                     <td className="border-2">
                       <div className="flex justify-center text-2xl">
-                        {result.support}
+                        {result.support.toFixed(2)}
                       </div>
                     </td>
                     <td className="border-2">
                       <div className="flex justify-center text-2xl">
-                        {result.confidence}
+                        {result.confidence.toFixed(2)}
                       </div>
                     </td>
                   </tr>
