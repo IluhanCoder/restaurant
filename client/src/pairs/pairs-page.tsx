@@ -11,10 +11,10 @@ import { ToastContainer, toast } from "react-toastify";
 import categoriesArray from "../misc/categories-array";
 
 const PairsPage = () => {
-  const [minSupport, setMinSupport] = useState<number>(0.1);
-  const [maxSupport, setMaxSupport] = useState<number>(9);
+  const [minSupport, setMinSupport] = useState<number>(3);
+  const [maxSupport, setMaxSupport] = useState<number>(6);
   const [minConfidence, setMinConfidence] = useState<number>(0.1);
-  const [maxConfidence, setMaxConfidence] = useState<number>(0.9);
+  const [maxConfidence, setMaxConfidence] = useState<number>(1);
   const [category, setCategory] = useState<string>("");
   const [results, setResults] = useState<PairsResponse[]>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
